@@ -1,6 +1,6 @@
-# Three.js Portfolio Project
+# Three.js boilerplate project
 
-A personal Three.js project focused on clean structure and maintainable architecture.
+A boilerplate Three.js project focused on clean and maintainable architecture.
 
 ## Tech
 - Three.js
@@ -10,3 +10,6 @@ A personal Three.js project focused on clean structure and maintainable architec
 ## Run
 npm install  
 npm run dev
+
+---
+> ps. boilerplate-v1 tag doesn't include physics!
