@@ -1,9 +1,10 @@
 # Three.js boilerplate project
 
-A boilerplate Three.js project focused on clean and maintainable architecture.
+A boilerplate Three.js project with physics integration focused on clean and maintainable architecture.
 
 ## Tech
 - Three.js
+- Rapier
 - Vite
 - JavaScript
 
