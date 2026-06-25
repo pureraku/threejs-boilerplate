@@ -1,10 +1,10 @@
-import * as THREE from 'three';
-import Animate from './animate.js';
+import * as THREE from "three";
+import Animate from "./animate.js";
 
 // dev tools
-import Controls from './controls.js';
-import { SceneLights, SceneHelpers } from './sceneSetup.js';
-import RapierDebug from './rapierDebug.js';
+import Controls from "./controls.js";
+import { SceneLights, SceneHelpers } from "./sceneSetup.js";
+import RapierDebug from "./rapierDebug.js";
 
 export default class Env {
   constructor(physics) {
@@ -13,7 +13,13 @@ export default class Env {
     this.clock = new THREE.Clock();
 
     this.init();
-    window.addEventListener('resize', this.onWindowResize);
+    window.addEventListener("resize", this.onWindowResize);
+  }
+
+  add(items) {
+    for (const item of items) {
+      this.scene.add(item);
+    }
   }
 
   init() {
@@ -23,7 +29,7 @@ export default class Env {
       75,
       window.innerWidth / window.innerHeight,
       0.1,
-      10000
+      10000,
     );
     this.camera.position.set(0, 2, 3);
 
@@ -33,13 +39,13 @@ export default class Env {
     this.renderer.shadowMap.enabled = true;
     this.renderer.setAnimationLoop(this.loop);
 
-    document.querySelector('.screen').appendChild(this.renderer.domElement);
+    document.querySelector(".screen").appendChild(this.renderer.domElement);
 
     this.lights = new SceneLights(this.scene);
     this.helpers = new SceneHelpers(this.scene);
 
-      this.controls = new Controls(this.camera, this.renderer.domElement);
-      this.rapierDebug = new RapierDebug(this.scene, this.physics);
+    this.controls = new Controls(this.camera, this.renderer.domElement);
+    // this.rapierDebug = new RapierDebug(this.scene, this.physics);
   }
 
   loop = () => {
@@ -48,8 +54,8 @@ export default class Env {
     this.animate.update(delta);
     this.physics.step();
 
-      this.controls?.update();
-      this.rapierDebug?.update();
+    this.controls?.update();
+    this.rapierDebug?.update();
 
     this.renderer.render(this.scene, this.camera);
   };

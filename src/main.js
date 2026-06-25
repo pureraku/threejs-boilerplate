@@ -1,7 +1,8 @@
-import Env from './core/env.js';
-import Physics from './core/physics.js';
-import Cube from './objects/cube.js';
-import Ground from './objects/ground.js';
+import Env from "./core/env.js";
+import Physics from "./core/physics.js";
+import Cube from "./objects/cube.js";
+import Ground from "./objects/ground.js";
+import Sphere from "./objects/sphere.js";
 
 (async () => {
   const physics = await Physics.init();
@@ -9,7 +10,7 @@ import Ground from './objects/ground.js';
 
   const ground = new Ground(physics);
   const cube = new Cube(env, physics);
+  const sphere = new Sphere(env, physics, 1);
 
-  env.scene.add(ground);
-  env.scene.add(cube);
+  env.add([ground, cube, sphere]);
 })();
